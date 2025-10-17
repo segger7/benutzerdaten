@@ -27,7 +27,33 @@
         </div>
     </form>
 
-    <table>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>E-Mail</th>
+            <th>Geburtsdatum</th>
+        </tr>
+        </thead>
+        <tbody>
+            <?php
+
+            require "userdata.php";
+
+            foreach ($data as $user) {
+                echo "<tr>";
+                echo "<th> <a href='details.php/?id=1'>" . $user["firstname"] . " " . $user["lastname"] . " </a></th>";
+                echo "<th>" . $user["email"] . "</th>";
+                echo "<th>" . $user["birthdate"] . "</th>";
+                echo "</tr>";
+            }
+
+
+            ?>
+
+        <a href="details.php/?id=1"></a>
+
+        </tbody>
 
     </table>
 
