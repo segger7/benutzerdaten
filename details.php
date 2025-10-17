@@ -6,22 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
 
     <title>Benutzerdetails</title>
 </head>
 <body>
 
 <?php
-$id = $_GET["id"];
+
+include "userdata.php";
+
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+$user = null;
+
+foreach ($data as $u)
+    {
+        if($u['id'] == $id){
+            $user = $u;
+            break;
+        }
+    }
 ?>
-
-
-
     <h1>Benutzerdetails</h1>
-
         <a href="index.php">zurück</a>
+
+
+<table class="table table-striped table-bordered w-50">
+    <tbody>
+    <tr>
+        <td>Vorname</td>
+        <td><?= htmlspecialchars($user['firstname']) ?></td>
+    </tr>
+    <tr>
+        <td>Nachname</td>
+        <td>Zeile 2, Spalte 2</td>
+    </tr>
+    <tr>
+        <td>Geburtsdatum</td>
+        <td>Zeile 1, Spalte 2</td>
+    </tr>
+    <tr>
+        <td>E-Mail</td>
+        <td>Zeile 2, Spalte 2</td>
+    </tr>
+    <tr>
+        <td>Telefon</td>
+        <td>Zeile 1, Spalte 2</td>
+    </tr>
+    <tr>
+        <td>Straße</td>
+        <td>Zeile 2, Spalte 2</td>
+    </tr>
+    </tbody>
+
+</table>
+
 
 
 </div>
