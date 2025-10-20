@@ -16,18 +16,12 @@
 <?php
 
 include "userdata.php";
+include "functions.php";
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-$user = null;
+$user = getDataPerId($id);
 
-foreach ($data as $u)
-    {
-        if($u['id'] == $id){
-            $user = $u;
-            break;
-        }
-    }
 ?>
     <h1>Benutzerdetails</h1>
         <a href="index.php" >zurück</a>
