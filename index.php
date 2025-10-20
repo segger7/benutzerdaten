@@ -20,7 +20,7 @@
             <label for="suche">Suche:</label>
             <input type="text" name="suche" class="form-control">
             <input type="submit" name="submit" value="Suchen" class="btn btn-primary btn-block">
-            <input type="button" name="clear" value="Leeren" class="btn btn-primary btn-block">
+            <input type="submit" name="clear" value="Leeren" class="btn btn-primary btn-block">
         </div>
     </form>
 
@@ -38,20 +38,29 @@
             require "userdata.php";
             require "functions.php";
 
-            //if POST filter sonst all -> data
+            $search_data = [];
 
-            foreach (getAllData() as $user) {
+            if(isset($_POST["clear"])) {
+                $_POST = [];
+            }
+
+            if(isset($_POST["submit"])) {
+                $search_data = getFilteredData($_POST["suche"]);
+            } else {
+                $search_data = getAllData();
+            }
+
+            foreach ($search_data as $user) {
                 echo "<tr>";
-                echo "<th> <a href='details.php/?id= ". $user["id"] ."'>" . $user["firstname"] . " " . $user["lastname"] . " </a></th>";
+                echo "<th> <a href='details.php?id= ". $user["id"] ."'>" . $user["firstname"] . " " . $user["lastname"] . " </a></th>";
                 echo "<th>" . $user["email"] . "</th>";
-                echo "<th>" . $user["birthdate"] . "</th>";
+                $datum = new DateTime($user["birthdate"]);
+                echo "<th>" . $datum->format("d.m.Y") . "</th>";
                 echo "</tr>";
             }
 
 
             ?>
-
-        <a href="details.php/?id=1"></a>
 
         </tbody>
 
