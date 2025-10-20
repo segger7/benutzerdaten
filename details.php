@@ -24,7 +24,10 @@ $user = getDataPerId($id);
 
 ?>
     <h1>Benutzerdetails</h1>
-        <a href="index.php" >zurück</a>
+        <?php
+        echo "<a href='index.php?suche=" .  (isset($_GET['suchwort']) ? $_GET['suchwort'] : "") ."'>zurück</a>";
+        ?>
+
 <br>
 <br>
 
