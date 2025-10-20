@@ -16,13 +16,14 @@
     <h1>Benutzerdaten anzeigen</h1>
 
     <form action="index.php" method="post">
-        <div class="col-sm-4 form-group">
-            <label for="suche">Suche:</label>
-            <input type="text" name="suche" class="form-control">
-            <input type="submit" name="submit" value="Suchen" class="btn btn-primary btn-block">
-            <input type="submit" name="clear" value="Leeren" class="btn btn-primary btn-block">
+        <div class="form-group d-flex align-items-center gap-2">
+            <label for="suche" class="me-2 mb-0">Suche:</label>
+            <input type="text" name="suche" class="form-control me-2" style="max-width: 300px;">
+            <input type="submit" name="submit" value="Suchen" class="btn btn-primary me-2">
+            <input type="submit" name="clear" value="Leeren" class="btn btn-secondary">
         </div>
     </form>
+
 
     <table class="table table-striped table-bordered">
         <thead>
