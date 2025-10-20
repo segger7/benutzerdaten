@@ -1,6 +1,3 @@
-<?php
-?>
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -39,10 +36,13 @@
             <?php
 
             require "userdata.php";
+            require "functions.php";
 
-            foreach ($data as $user) {
+            //if POST filter sonst all -> data
+
+            foreach (getAllData() as $user) {
                 echo "<tr>";
-                echo "<th> <a href='details.php/?id=1'>" . $user["firstname"] . " " . $user["lastname"] . " </a></th>";
+                echo "<th> <a href='details.php/?id= ". $user["id"] ."'>" . $user["firstname"] . " " . $user["lastname"] . " </a></th>";
                 echo "<th>" . $user["email"] . "</th>";
                 echo "<th>" . $user["birthdate"] . "</th>";
                 echo "</tr>";
