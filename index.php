@@ -22,6 +22,7 @@
             <input type="submit" name="submit" value="Suchen" class="btn btn-primary me-2">
             <input type="submit" name="clear" value="Leeren" class="btn btn-secondary">
         </div>
+        <br>
     </form>
 
 
