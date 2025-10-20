@@ -53,7 +53,8 @@
 
             foreach ($search_data as $user) {
                 echo "<tr>";
-                echo "<th> <a href='details.php?id= ". $user["id"] ."'>" . $user["firstname"] . " " . $user["lastname"] . " </a></th>";
+                echo "<th> <a href='details.php?id= ". $user["id"] . "'>";
+                echo $user["firstname"] . " " . $user["lastname"] . " </a></th>";
                 echo "<th>" . $user["email"] . "</th>";
                 $datum = new DateTime($user["birthdate"]);
                 echo "<th>" . $datum->format("d.m.Y") . "</th>";
