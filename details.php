@@ -33,7 +33,7 @@ foreach ($data as $u)
         <a href="index.php">zurück</a>
 
 
-<table class="table table-striped table-bordered w-50">
+<table class="table table-bordered w-50">
     <tbody>
     <tr>
         <td>Vorname</td>
@@ -41,23 +41,23 @@ foreach ($data as $u)
     </tr>
     <tr>
         <td>Nachname</td>
-        <td>Zeile 2, Spalte 2</td>
+        <td><?= htmlspecialchars($user['lastname']) ?></td>
     </tr>
     <tr>
         <td>Geburtsdatum</td>
-        <td>Zeile 1, Spalte 2</td>
+        <td><?= htmlspecialchars($user['birthdate']) ?></td>
     </tr>
     <tr>
         <td>E-Mail</td>
-        <td>Zeile 2, Spalte 2</td>
+        <td><?= htmlspecialchars($user['email']) ?></td>
     </tr>
     <tr>
         <td>Telefon</td>
-        <td>Zeile 1, Spalte 2</td>
+        <td><?= htmlspecialchars($user['phone']) ?></td>
     </tr>
     <tr>
         <td>Straße</td>
-        <td>Zeile 2, Spalte 2</td>
+        <td><?= htmlspecialchars($user['street']) ?></td>
     </tr>
     </tbody>
 
