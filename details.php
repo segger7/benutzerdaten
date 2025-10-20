@@ -30,7 +30,9 @@ foreach ($data as $u)
     }
 ?>
     <h1>Benutzerdetails</h1>
-        <a href="index.php">zurück</a>
+        <a href="index.php" >zurück</a>
+<br>
+<br>
 
 
 <table class="table table-bordered w-50">
@@ -63,9 +65,6 @@ foreach ($data as $u)
 
 </table>
 
-
-
-</div>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
