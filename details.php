@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="de">
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -21,6 +20,8 @@ include "functions.php";
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 $user = getDataPerId($id);
+
+$datum = new DateTime($user["birthdate"]);
 
 ?>
     <h1>Benutzerdetails</h1>
@@ -44,7 +45,7 @@ $user = getDataPerId($id);
     </tr>
     <tr>
         <td>Geburtsdatum</td>
-        <td><?= htmlspecialchars($user['birthdate']) ?></td>
+        <td><?= $datum->format("d.m.Y") ?></td>
     </tr>
     <tr>
         <td>E-Mail</td>
