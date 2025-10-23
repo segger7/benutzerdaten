@@ -10,7 +10,11 @@ function getAllData() {
 
 function getDataPerId($id) {
     global $data;
-    return $data[$id];
+    foreach($data as $user) {
+        if($user["id"] == $id) {
+            return $user;
+        }
+    }
 }
 
 function getFilteredData($filter) {

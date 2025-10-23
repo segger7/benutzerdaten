@@ -41,6 +41,7 @@
             require "functions.php";
 
             $search_data = [];
+            $filter_word = "";
 
             if(isset($_POST["clear"])) {
                 $_POST = [];
@@ -48,13 +49,17 @@
 
             if(isset($_POST["submit"])) {
                 $search_data = getFilteredData($_POST["suche"]);
+                $filter_word = isset($_POST["suche"]) ? $_POST["suche"] : 0;
+            } else if(isset($_GET["suche"])) {
+                $search_data = getFilteredData($_GET["suche"]);
+                $filter_word = isset($_GET["suche"]) ? $_GET["suche"] : 0;
             } else {
                 $search_data = getAllData();
             }
 
             foreach ($search_data as $user) {
                 echo "<tr>";
-                echo "<th> <a href='details.php?id= ". $user["id"] . "'>";
+                echo "<th> <a href='details.php?id= ". $user["id"] . "&suchwort=" . $filter_word . "'>";
                 echo $user["firstname"] . " " . $user["lastname"] . " </a></th>";
                 echo "<th>" . $user["email"] . "</th>";
                 $datum = new DateTime($user["birthdate"]);
